@@ -1,0 +1,130 @@
+{% extends "../base.html" %}
+
+{% load i18n %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+{% block title %}Fiskali kasa - {% trans "Računi" %}{% endblock %}
+
+{% block klasa_racuni %} class="menu-top-active" {% endblock %}
+
+{% block headline %} {% trans "Računi" %} {% endblock %}
+
+{% block additional_end_head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
+{% endblock %}
+
+{% block content %}
+<div class="modal fade" id="filter-odabir" tabindex="-1" role="dialog" aria-labelledby="odabirFiltera">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Filteri</h3>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <form class="form" action="" method="get">
+                            <div class="form-group col-xs-12 col-sm-3">
+                                <label>{% trans "Oznaka računa" %}</label>
+                                {% render_field filters.form.oznaka class="form-control" %}
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-3">
+                                <label>{% trans "Vrijeme" %}</label>
+                                {% render_field filters.form.vrijeme_izdavanja_between  class="form-control datepicker" %}
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-3">
+                                <label>{% trans "Kupac" %}</label>
+                                {% render_field filters.form.naziv_kupca class="form-control" %}
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-3">
+                                <label>{% trans "Iznos" %}</label>
+                                {% render_field filters.form.ukupni_iznos class="form-control" %}
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-3">
+                                <button type="submit" class="btn btn-primary form-control">{% trans "Traži" %}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <button type="button" class="filter btn btn-info btn-md" data-toggle="modal" data-target="#filter-odabir">
+    {% if is_filtered %}
+        Uredi filtere
+    {% else %}
+        Filtriraj
+    {% endif %}
+    </button>
+    {% if is_filtered %}
+        <a href="{% url 'moji_racuni' %}" class="btn btn-default filter">Očisti filtere</a>
+    {% endif%}
+    {% if object_list %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {% trans "Popis računa" %}
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive col-xs-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>{% trans "Broj računa" %}</th>
+                            <th>{% trans "Oznaka" %}</th>
+                            <th>{% trans "Vrijeme izdavanja" %}</th>
+                            <th>{% trans "Ukupni iznos" %}</th>
+                            <th>{% trans "Operater" %}</th>
+                            <th>{% trans "Ispis" %}</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for racun in object_list %}
+                            <tr>
+                                <td>{{ racun.broj }}</td>
+                                <td>{{ racun.oznaka }}</td>
+                                <td>{{ racun.vrijeme_izdavanja }}</td>
+                                {% if racun.ukupni_iznos %}
+                                    <td>{{ racun.ukupni_iznos }} kn</td>
+                                {% else %}
+                                    <td>0 kn</td>
+                                {% endif %}
+                                <td>{{ racun.operater }}</td>
+                                <td>
+                                    <a href="{% url 'racun_pdf' pk=racun.id %}" class="btn btn-primary"><i class="fa fa-print "></i></a>
+                                </td>
+                                <td>
+                                    <a href="{% url 'racun_detalji' pk=racun.id display=0 %}" class="btn btn-info">{% trans "Detalji" %}</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% else %}
+        <div class="alert alert-danger">
+            {% trans "Nisu pronađeni računi." %}
+        </div>
+{% endif %}
+</div>
+{% endblock %}
+{% block additional_end_body %}
+<script type='text/javascript' src="{% static "kasa/js/moment-with-locales.min.js" %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+<script>
+    
+    $(function() {
+        $('.datepicker').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+    });
+
+</script>
+{% endblock %} 

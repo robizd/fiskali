@@ -1,0 +1,73 @@
+{% extends "../base.html" %}
+{% load widget_tweaks %}
+{% load i18n %}
+{% block title %}Fiskali kasa - Promjena podataka{% endblock %}
+
+{% block klasa_tvrtka %} class="menu-top-active" {% endblock %}
+
+{% block headline %} {% trans "Uređivanje podataka o tvrtki" %} {% endblock %}
+
+{% block content %}
+<div class="col-md-6">
+	<div class="panel panel-default">
+        <div class="panel-heading">
+           {% trans "Podaci o tvrtki" %}
+        </div>
+        <div class="panel-body">
+	        <form method="post" enctype="multipart/form-data">
+	            {% csrf_token %}
+                {{ form.errors }}
+	            <div class="form-group col-xs-12 col-sm-8">
+                    <label>{% trans "Naziv" %}</label>
+                    <p>{{ request.user.tvrtka.naziv }}</p>
+                </div>
+                <div class="form-group col-sm-8">
+                    <label>{% trans "Mjesto" %}</label>
+                    <p>{{ request.user.tvrtka.mjesto }}</p>
+                </div>
+                <div class="form-group col-sm-8">
+                    <label>{% trans "Adresa" %}</label>
+                    <p>{{ request.user.tvrtka.adresa }}</p>
+                </div>
+                <div class="form-group col-sm-8">
+                    <label>{% trans "OIB" %}</label>
+                    <p>{{ request.user.tvrtka.oib }}</p>
+                </div>
+                <div class="form-group col-sm-8">
+                    <label for="id_iban">{{ form.iban.label }}</label>
+                    {{ form.iban | add_class:"form-control" }}
+                    {{ form.iban.errors }}
+                </div>
+                <div class="form-group col-sm-8">
+                    <label for="id_telefon">{{ form.telefon.label }}</label>
+                    {{ form.telefon | add_class:"form-control" }}
+                    {{ form.telefon.errors }}
+                </div>
+                <div class="form-group col-sm-5">
+                    <label for="id_u_sustavu_pdv">
+                    	 <strong>{{ form.u_sustavu_pdv.label }}</strong>
+                                 {{ form.u_sustavu_pdv.errors }}
+                    </label>
+                    {{ form.u_sustavu_pdv }}
+                    {{ form.u_sustavu_pdv.errors }}
+ 				</div>
+ 				   <div class="form-group col-sm-8">
+                    <label for="id_certifikat">{{ form.certifikat.label }}</label>
+                    {{ form.certifikat | add_class:"form-control" }}
+                    {{ form.certifikat.errors }}
+                </div>
+                <div class="form-group col-sm-8">
+                    <label for="id_certifikat_lozinka">{{ form.certifikat_lozinka.label }}</label>
+                    {{ form.certifikat_lozinka | add_class:"form-control" }}
+                    {{ form.certifikat_lozinka.errors }}
+                </div>
+                {{ form.non_field_errors }}
+                <div class="form-group col-sm-8">
+                    <input class="btn btn-md btn-success" type="submit" value="Spremi">
+                    <a href="{% url 'tvrtka' pk=object.id %}" class="btn btn-default">Odustani</a>
+                </div>
+	        </form>
+	    </div>
+	</div>
+</div>
+{% endblock %}

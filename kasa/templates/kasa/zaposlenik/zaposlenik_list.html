@@ -1,0 +1,58 @@
+{% extends "../base.html" %}
+
+{% load i18n %}
+
+{% block title %}Fiskali kasa - {% trans "Zaposlenici" %} {% endblock %}
+
+{% block klasa_zaposlenici %} class="menu-top-active" {% endblock %}
+
+{% block headline %} {% trans "Zaposlenici" %} {% endblock %}
+
+{% block content %}
+<div class="col-md-12">
+    {% if object_list %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {% trans "Popis zaposlenika" %}
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>{% trans "Korisničko ime" %}</th>
+                            <th>{% trans "Ime" %}</th>
+                            <th>{% trans "Prezime" %}</th>
+                            <th>{% trans "OIB" %}</th>
+                            <th>{% trans "Administrator" %}
+                            <th>{% trans "Uredi" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for zaposlenik in object_list %}
+                        <tr>
+                            <td>{{ zaposlenik.username }}</td>
+                            <td>{{ zaposlenik.first_name }}</td>
+                            <td>{{ zaposlenik.last_name }}</td>
+                            <td>{{ zaposlenik.oib }}</td>
+                            <td>
+                                {% if zaposlenik.is_staff %}
+                                    <i class="fa fa-check green"></i>
+                                {% else %}
+                                    <i class="fa fa-times red"></i>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="{% url 'zaposlenici_izmijeni' pk=zaposlenik.id %}" class="btn btn-primary"><i class="fa fa-edit "></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}   
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <a href="{% url 'zaposlenici_dodaj' %}" class="btn btn-success"><i class="fa fa-plus "></i> {% trans "Novi zaposlenik" %}</a>
+</div>
+{% endblock %}

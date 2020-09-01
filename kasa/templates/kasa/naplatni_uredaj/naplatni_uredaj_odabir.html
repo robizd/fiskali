@@ -1,0 +1,48 @@
+{% extends "../base.html" %}
+
+{% block title %}Fiskali kasa - Naplatni uređaji - odabir{% endblock %}
+
+{% block additional_end_head %}
+<style type="text/css">
+    option {
+        font-size: 16px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="modal fade" id="uredaj-odabir" tabindex="-1" role="dialog" aria-labelledby="odabirUredaja">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Odaberi naplatni uređaj
+            </div>
+            <div class="modal-body">
+                 <form role="form" method="get" action="">    
+                    {% csrf_token %}
+                    {{ form.errors }}
+                    {{ form.non_field_errors }}             
+                    <div class="form-group">
+                        <label>Odaberi</label>
+                        <select name="uredaj" class="form-control">
+                            {% for uredaj in naplatni_uredaji %}
+                                <option value="{{uredaj.id}}">Poslovnica {{ uredaj.poslovnica.naziv }} / Uređaj {{ uredaj.broj }}</option>
+                            {% empty %}
+                            <option value="-1">Nemate dodijeljenih naplatnih uređaja</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-success btn-md" type="submit" value="Odaberi">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block additional_end_body %}
+<script>
+    $('#uredaj-odabir').modal('show');
+</script>
+{% endblock %}  

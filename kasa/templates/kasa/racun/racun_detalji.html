@@ -1,0 +1,154 @@
+{% extends "../base.html" %}
+
+{% load i18n %}
+
+{% block title %}Fiskali kasa - {% trans "Detalji računa" %}{% endblock %}
+
+
+{% block klasa_moji_racuni %}
+    {% if display == 1 %}
+        bk-clr-active
+    {% endif %}
+{% endblock %}
+
+{% block klasa_racuni %}
+    {% if display == 0 %}
+        class="menu-top-active"
+    {% endif %}
+{% endblock %}
+
+{% block headline %} {% trans "Detalji računa" %} {% endblock %}
+
+{% block content %}
+<div class="col-md-6">
+{% if racun %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {% trans "Osnovni" %}
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th>Broj računa</th>
+                            <td>{{ racun.broj }}</td>
+                        </tr>
+                        <tr>
+                            <th>Oznaka</th>
+                            <td>{{ racun.oznaka }}</td>
+                        </tr>
+                        <tr>
+                            <th>Vrijeme izdavanja</th>
+                            <td>{{ racun.vrijeme_izdavanja }}</td>
+                        </tr>
+                        <tr>
+                            <th>Broj naplatnog uređaja</th>
+                            <td>{{ racun.naplatni_uredaj }}</td>
+                        </tr>
+                        <tr>
+                            <th>Naziv kupca</th>
+                            <td>{{ racun.naziv_kupca }}</td>
+                        </tr>
+                        <tr>
+                            <th>Način plaćanja</th>
+                            <td>{{ racun.get_nacin_placanja_display }}</td>
+                        </tr>
+                        <tr>
+                            <th>ZKI</th>
+                            <td>{{ racun.zki }}</td>
+                        </tr>
+                        <tr>
+                            <th>JIR</th>
+                            <td>{{ racun.jir }}</td>
+                        </tr>
+                        <tr>
+                            <th>Ukupni iznos</th>
+                            {% if racun.ukupni_iznos %}
+                            <td>{{ racun.ukupni_iznos }} kn</td>
+                            {% else %}
+                            <td>0 kn</td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <th>Operater</th>
+                            <td>{{ racun.naziv_operatera }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endif %}
+</div>
+<div class="col-md-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {% trans "Rekapitulacija poreza" %}
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Stopa poreza</th>
+                            <th>Osnovica poreza</th>
+                            <th>Iznos poreza</th>
+                            <th>Iznos</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for racun_porez in racun_porezi %}
+                            <tr>
+                                <td>{{ racun_porez.stopa_poreza }} %</td>
+                                <td>{{ racun_porez.osnovica_poreza }} kn</td>
+                                <td>{{ racun_porez.iznos_poreza }} kn</td>
+                                <td>{{ racun_porez.ukupno }} kn</td>
+                            </tr>
+                            {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {% trans "Stavke računa" %}
+        </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Naziv artikla</th>
+                                <th>Količina</th>
+                                <th>Cijena artikla</th>
+                                <th>Pdv artikla</th>
+                                <th>Pnp artikla</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {% for stavka in stavke_racuna %}
+                                <tr>
+                                    <td>{{ stavka.naziv_artikla }}</td>
+                                    <td>{{ stavka.kolicina }}</td>
+                                    <td>{{ stavka.cijena_artikla }} kn</td>
+                                    <td>{{ stavka.pdv_artikla }} %</td>
+                                    {% if stavka.pnp_artikla %}
+                                    <td>3 %</td>
+                                    {% else %}
+                                    <td>0 %</td>
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

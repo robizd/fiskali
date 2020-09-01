@@ -1,0 +1,56 @@
+{% extends "../base.html" %}
+
+{% load i18n %}
+
+{% block title %}Fiskali kasa - {% trans "Naplatni uređaji" %}{% endblock %}
+
+{% block klasa_nap_uredaji %} class="menu-top-active" {% endblock %}
+
+{% block headline %} {% trans "Naplatni uređaji" %} {% endblock %}
+
+{% block content %}
+<div class="col-md-12">
+{% if object_list %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {% trans "Popis naplatnih uređaja" %}
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>{% trans "Poslovnica" %}</th>
+                            <th>{% trans "Broj uređaja" %}</th>
+                            <th>{% trans "Zaposlenici" %}</th>
+                            <th>{% trans "Uredi" %}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for uredaj in object_list %}
+                            <tr>
+                                <td>{{ uredaj.poslovnica }}</td>
+                                <td>{{ uredaj.broj }}</td>
+                                <td>
+                                {% for zaposlenik in uredaj.zaposlenici.all %}
+                                    <span class="label label-info">{{ zaposlenik.username }}</span>
+                                {% endfor %} 
+                                </td>
+                                <td>
+                                    <a href="{% url 'naplatni_uredaji_izmijeni' pk=uredaj.id %}" class="btn btn-primary"><i class="fa fa-edit "></i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}   
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="alert alert-danger">
+        {% trans "Nisu pronađeni naplatni uređaji." %}
+    </div>
+{% endif %}
+<a href="{% url 'naplatni_uredaji_dodaj' %}" class="btn btn-success"><i class="fa fa-plus "></i> {% trans "Novi naplatni uređaj" %}</a>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "../base.html" %}
+
+{% load widget_tweaks %}
+
+{% load i18n %}
+
+{% get_current_language as LANGUAGE_CODE %}
+
+{% load static %}
+
+{% block title %}Fiskali kasa - {% trans "Naplatni uređaji" %} {% endblock %}
+
+{% block klasa_nap_uredaji %} class="menu-top-active" {% endblock %}
+
+{% block headline %} {% trans "Naplatni uređaji" %} {% endblock %}
+
+{% block content %}
+<div class="col-md-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+           {% trans "Unos novog uređaja" %}
+        </div>
+        <div class="panel-body">
+	        <form method="post">
+	            {% csrf_token %}
+                {{ form.errors }}
+                <div class="form-group col-xs-12 col-sm-8">
+                	<label for="id_username">{{ form.zaposlenici.label }}</label><br>
+                	{{ form.zaposlenici | add_class:"form-control" }}
+                    {{ form.zaposlenici.errors }}
+                </div>
+                 <div class="form-group col-xs-12 col-sm-8">
+                	<label for="id_username">{{ form.poslovnica.label }}</label>
+                	{{ form.poslovnica | add_class:"form-control" }}
+                    {{ form.poslovnica.errors }}
+                </div>
+                {{ form.non_field_errors }}
+                <div class="form-group col-sm-8">
+                    <input class="btn btn-md btn-success" type="submit" value="Spremi">
+                    <a href="{% url 'naplatni_uredaji' %}" class="btn btn-default">Odustani</a>
+                </div>
+            </form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block additional_end_body %}
+    <script type="text/javascript" src="{% static "kasa/js/bootstrap-multiselect.js" %}"></script>
+    <link rel="stylesheet" href="{% static "kasa/css/bootstrap-multiselect.css" %}" type="text/css"/>
+    {% if LANGUAGE_CODE == 'en' %}
+        <script type="text/javascript" src="{% static "kasa/js/i18n/en-multiselect.js" %}"></script>
+    {% else %}
+        <script type="text/javascript" src="{% static "kasa/js/i18n/hr-multiselect.js" %}"></script>
+    {% endif %}
+    <script type="text/javascript">
+        (function ( $ ) { 
+            $('#id_zaposlenici').multiselect({
+                includeSelectAllOption: false,
+                selectedClass: "",
+                includeSelectAllOption: true
+            });
+        }( jQuery ));
+    </script>
+{% endblock %}  

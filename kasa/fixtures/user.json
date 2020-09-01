@@ -1,0 +1,156 @@
+[
+  {
+    "model": "kasa.zaposlenik",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$120000$LfmMJBSO3m6z$l8/5osWs+NO2hfHWl8ff3lvnF2ymC9iItzoVEAbIeJY=",
+      "last_login": "2018-09-26T06:35:09.379",
+      "username": "demo",
+      "first_name": "Ivo",
+      "last_name": "Ivić",
+      "oib": "55703284647",
+      "email": "ivo.ivic@gmail.hr",
+      "is_active": true,
+      "is_admin": false,
+      "is_staff": true,
+      "tvrtka": 1
+    }
+  },
+  {
+    "model": "kasa.tvrtka",
+    "pk": 1,
+    "fields": {
+      "naziv": "Citylab d.o.o.",
+      "mjesto": "23000 Zadar",
+      "adresa": "Luke Boti\u0107a 25",
+      "oib": "55703284647",
+      "iban": "HR5223400091110215509",
+      "u_sustavu_pdv": false,
+      "telefon": "+38523315135",
+      "certifikat": "certifikati/FISKAL_3.p12",
+      "certifikat_lozinka": "Pakelmozesve1",
+      "inicijalizacija": true
+    }
+  },
+  {
+    "model": "kasa.poslovnica",
+    "pk": 1,
+    "fields": {
+      "naziv": "Ured 1",
+      "mjesto": "Zadar",
+      "adresa": "Luke Boti\u0107a 25",
+      "broj": 1,
+      "oznaka": "POSL1",
+      "telefon": "",
+      "tvrtka": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "kasa.naplatniuredaj",
+    "pk": 1,
+    "fields": {
+      "broj": 1,
+      "poslovnica": 1,
+      "is_active": true,
+      "zaposlenici": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "kasa.artikl",
+    "pk": 1,
+    "fields": {
+      "naziv": "Izrada web stranice",
+      "maloprodajna_cijena": "1000.00",
+      "tvrtka": 1,
+      "pdv": 1,
+      "pnp": false,
+      "jedinica": "KOM",
+      "is_active": true
+    }
+  },
+  {
+    "model": "kasa.artikl",
+    "pk": 2,
+    "fields": {
+      "naziv": "Izrada web aplikacije",
+      "maloprodajna_cijena": "3500.00",
+      "tvrtka": 1,
+      "pdv": 1,
+      "pnp": false,
+      "jedinica": "KOM",
+      "is_active": true
+    }
+  },
+  {
+    "model": "kasa.artikl",
+    "pk": 3,
+    "fields": {
+      "naziv": "ERP",
+      "maloprodajna_cijena": "10000.00",
+      "tvrtka": 1,
+      "pdv": 1,
+      "pnp": false,
+      "jedinica": "KOM",
+      "is_active": true
+    }
+  },
+  {
+    "model": "kasa.artikl",
+    "pk": 4,
+    "fields": {
+      "naziv": "Web hosting",
+      "maloprodajna_cijena": "500.00",
+      "tvrtka": 1,
+      "pdv": 1,
+      "pnp": false,
+      "jedinica": "KOM",
+      "is_active": true
+    }
+  },
+  {
+    "model": "kasa.kupac",
+    "pk": 1,
+    "fields": {
+      "naziv": "Razni kupci",
+      "adresa": "",
+      "oib": "0000000001",
+      "napomena": "",
+      "tvrtka": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "kasa.kupac",
+    "pk": 2,
+    "fields": {
+      "naziv": "Inovativni Zadar",
+      "adresa": "Grgura Budislavi\u0107a 99",
+      "oib": "33061586626",
+      "napomena": "",
+      "tvrtka": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "kasa.kupac",
+    "pk": 3,
+    "fields": {
+      "naziv": "Retis informatika d.o.o.",
+      "adresa": "Zadar, Zrmanjska 13",
+      "oib": "49823161625",
+      "napomena": "",
+      "tvrtka": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "kasa.pdv",
+    "pk": 1,
+    "fields": {
+      "stopa": 25
+    }
+  }
+]

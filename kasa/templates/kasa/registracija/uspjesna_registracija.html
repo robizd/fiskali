@@ -1,0 +1,24 @@
+{% extends '../base.html' %}
+
+{% block title %}Fiskali kasa - Uspješna registracija{% endblock %}
+
+{% block content %}
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-head-line margin-top">Uspješna registracija</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-success">
+                        <strong>Registracija je uspješno obavljena. Na Vašu email adresu poslana je poveznica za aktivaciju računa.</strong><br>
+                        <a href="{% url 'home' %}">Prijavite se</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CONTENT-WRAPPER SECTION END-->
+{% endblock %}

@@ -1,0 +1,361 @@
+                                                                                
+                                                                                
+                                Permissions list                                
+    ID         Name                                                             
+                                  Look those permissi                          
+    1          Can add log entry                                               
+    2          Can change log entry                                            
+    4          Can add trail                                                  
+    5          Can change trail                                                
+    6          Can delete trail                                                
+    8          Can change permission                                          
+    9          Can delete permission                                           
+    10         Can add user                                                    
+    11         Can change user                                                 
+    13         Can add group                                                  
+    14         Can change group                                                
+    15         Can delete group                                                
+    17         Can change Token                                               
+    18         Can delete Token                                                
+    19         Can add content type                                            
+    21         Can delete content type                                        
+    22         Can add group object permission                                 
+    23         Can change group object permission                              
+    24         Can delete group object permission                              
+    26         Can change user object permission                              
+    27         Can delete user object permission                               
+    28         Can add Banka                                                   
+    30         Can delete Banka                                               
+    31         Can add Go                                                      
+    32         Can change Go                                                   
+    34         Can add Godina                                                 
+    35         Can change Godina                                               
+    36         Can delete Godina                                               
+    37         Can add Država                                                  
+    39         Can delete Država                                              
+    40         Can add Vrsta Osobnih Primanja                                  
+    41         Can change Vrsta Osobnih Primanja                               
+    43         Can add Stručni Ispit                                          
+    44         Can change Stručni Ispit                                        
+    45         Can delete Stručni Ispit                                        
+    47         Can change Mjesto Troška                                       
+    48         Can delete Mjesto Troška                                        
+    49         Can add Vrsta Ro                                                
+                                                                                
+                                                Page # 12 (5 ~ 12, total: 8)    
+                                                                                                                                                                
+                                                                                
+                                Permissions list                                
+    ID         Name                                                             
+    51         Can delete Vrsta Ro                                            
+    52         Can add Razlog Dopusta                                          
+    53         Can change Razlog Dopusta                                       
+    55         Can add Potvrda Ro                                             
+    56         Can change Potvrda Ro                                           
+    57         Can delete Potvrda Ro                                           
+    59         Can change Naknada                                             
+    60         Can delete Naknada                                              
+    61         Can add Nadzorni Odbor                                          
+    62         Can change Nadzorni Odbor                                       
+    64         Can add Veza Tipova Zarada                                     
+    65         Can change Veza Tipova Zarada                                   
+    66         Can delete Veza Tipova Zarada                                   
+    68         Can change Zanimanje                                           
+    69         Can delete Zanimanje                                            
+    70         Can add Djelatnik                                               
+    72         Can delete Djelatnik                                           
+    73         Can add Grupa Virmana                                           
+    74         Can change Grupa Virmana                                        
+    75         Can delete Grupa Virmana                                        
+    77         Can change Administrator                                       
+    78         Can delete Administrator                                        
+    79         Can add Vrsta Radnog Mjesta                                     
+    81         Can delete Vrsta Radnog Mjesta                                 
+    82         Can add Kreditor                                                
+    83         Can change Kreditor                                             
+    85         Can add Tip Sati                                               
+    86         Can change Tip Sati                                             
+    87         Can delete Tip Sati                                             
+    88         Can add Firma                                                   
+    90         Can delete Firma                                               
+    91         Can add Način Dolaska Radnika                                   
+    92         Can change Način Dolaska Radnika                                
+    94         Can add Neoporezivi Primitak                                   
+    95         Can change Neoporezivi Primitak                                 
+    96         Can delete Neoporezivi Primitak                                 
+    98         Can change Go Izdavanje                                        
+    99         Can delete Go Izdavanje                                         
+    100        Can add Invalidnost                                             
+                                                                                
+                                                Page # 12 (5 ~ 12, total: 8)    
+                                                                                                                                                                
+                                                                                
+                                Permissions list                                
+    ID         Name                                                             
+    102        Can delete Invalidnost                                         
+    103        Can add Obavijest                                               
+    104        Can change Obavijest                                            
+    106        Can add Uredba                                                 
+    107        Can change Uredba                                               
+    108        Can delete Uredba                                               
+    110        Can change Dokument Radnika                                    
+    111        Can delete Dokument Radnika                                     
+    112        Can add Obrazac Ip1                                             
+    113        Can change Obrazac Ip1                                          
+    115        Can add Obračun Prosjeka                                       
+    116        Can change Obračun Prosjeka                                     
+    117        Can delete Obračun Prosjeka                                     
+    119        Can change Certifikat                                          
+    120        Can delete Certifikat                                           
+    121        Can add Vrsta Obračuna                                          
+    123        Can delete Vrsta Obračuna                                      
+    124        Can add Oznaka Primitka                                         
+    125        Can change Oznaka Primitka                                      
+    126        Can delete Oznaka Primitka                                      
+    128        Can change Mjesto                                              
+    129        Can delete Mjesto                                               
+    130        Can add Državljanstvo                                           
+    132        Can delete Državljanstvo                                       
+    133        Can add Status Radnog Vremena                                   
+    134        Can change Status Radnog Vremena                                
+    136        Can add Položaj                                                
+    137        Can change Položaj                                              
+    138        Can delete Položaj                                              
+    139        Can add Zvanje                                                  
+    141        Can delete Zvanje                                              
+    142        Can add Evidencija Određeno                                     
+    143        Can change Evidencija Određeno                                  
+    145        Can add Radno Mjesto                                           
+    146        Can change Radno Mjesto                                         
+    147        Can delete Radno Mjesto                                         
+    149        Can change Vrsta Naknade                                       
+    150        Can delete Vrsta Naknade                                        
+    151        Can add Stavka Prisutnosti                                      
+                                                                                
+                                                Page # 12 (5 ~ 12, total: 8)    
+                                                                                                                                                                
+                                                                                
+                                Permissions list                                
+    ID         Name                                                             
+    153        Can delete Stavka Prisutnosti                                  
+    154        Can add Grupa Zarada                                            
+    155        Can change Grupa Zarada                                         
+    157        Can add Donositelj                                             
+    158        Can change Donositelj                                           
+    159        Can delete Donositelj                                           
+    161        Can change Oznaka Stjecatelja Primitka                         
+    162        Can delete Oznaka Stjecatelja Primitka                          
+    163        Can add Porezna Osnovica Honorara                               
+    164        Can change Porezna Osnovica Honorara                            
+    166        Can add Vrsta Dokumenta                                        
+    167        Can change Vrsta Dokumenta                                      
+    168        Can delete Vrsta Dokumenta                                      
+    170        Can change Općina                                              
+    171        Can delete Općina                                               
+    172        Can add Porezna Osnovica                                        
+    174        Can delete Porezna Osnovica                                    
+    175        Can add Plaćeni Dopust                                          
+    176        Can change Plaćeni Dopust                                       
+    177        Can delete Plaćeni Dopust                                       
+    179        Can change Prisutnost                                          
+    180        Can delete Prisutnost                                           
+    181        Can add Doprinos                                                
+    183        Can delete Doprinos                                            
+    184        Can add Status Zahtjeva                                         
+    185        Can change Status Zahtjeva                                      
+    187        Can add Org Jedinica                                           
+    188        Can change Org Jedinica                                         
+    189        Can delete Org Jedinica                                         
+    190        Can add Grupa Doprinosa                                         
+    192        Can delete Grupa Doprinosa                                     
+    193        Can add Titula                                                  
+    194        Can change Titula                                               
+    196        Can add Grupa Poreza                                           
+    197        Can change Grupa Poreza                                         
+    198        Can delete Grupa Poreza                                         
+    200        Can change Srodstvo s Nositeljem                               
+    201        Can delete Srodstvo s Nositeljem                                
+    202        Can add Razlog Prekida Ro                                       
+                                                                                
+                                                Page # 12 (5 ~ 12, total: 8)    
+                                                                                                                                                                
+                                                                                
+                                Permissions list                                
+    ID         Name                                                             
+    204        Can delete Razlog Prekida Ro                                   
+    205        Can add Titula po Zvanju                                        
+    206        Can change Titula po Zvanju                                     
+    208        Can add Ocjenjivanje Zaposlenika                               
+    209        Can change Ocjenjivanje Zaposlenika                             
+    210        Can delete Ocjenjivanje Zaposlenika                             
+    212        Can change Tip Zarade                                          
+    213        Can delete Tip Zarade                                           
+    214        Can add Kontni Plan                                             
+    215        Can change Kontni Plan                                          
+    217        Can add Go Zahtjev                                             
+    218        Can change Go Zahtjev                                           
+    219        Can delete Go Zahtjev                                           
+    221        Can change Kalendar                                            
+    222        Can delete Kalendar                                             
+    223        Can add Račun Radnika                                           
+    225        Can delete Račun Radnika                                       
+    226        Can add Godišnja Porezna Osnovica                               
+    227        Can change Godišnja Porezna Osnovica                            
+    228        Can delete Godišnja Porezna Osnovica                            
+    230        Can change Status Radnika Boravak                              
+    231        Can delete Status Radnika Boravak                               
+    232        Can add Način Isplate                                           
+    234        Can delete Način Isplate                                       
+    235        Can add Osigurana Osoba                                         
+    236        Can change Osigurana Osoba                                      
+    238        Can add status predmeta                                        
+    239        Can change status predmeta                                      
+    240        Can delete status predmeta                                      
+    241        Can add subjekt pismena                                         
+    243        Can delete subjekt pismena                                     
+    244        Can add subjekt predmeta                                        
+    245        Can change subjekt predmeta                                     
+    247        Can add prilog                                                 
+    248        Can change prilog                                               
+    249        Can delete prilog                                               
+    251        Can change Tajnost                                             
+    252        Can delete Tajnost                                              
+    253        Can add naselje                                                 
+                                                                                
+                                                Page # 12 (5 ~ 12, total: 8)    
+                                                                                                                                                                
+                                                                                
+                                Permissions list                                
+    ID         Name                                                             
+    255        Can delete naselje                                             
+    256        Can add organizacijska jedinica                                 
+    257        Can change organizacijska jedinica                              
+    259        Can add Status pismena                                         
+    260        Can change Status pismena                                       
+    261        Can delete Status pismena                                       
+    263        Can change dosje                                               
+    264        Can delete dosje                                                
+    265        Can add surješavatelj pismena                                   
+    266        Can change surješavatelj pismena                                
+    268        Can add predmet                                                
+    269        Can change predmet                                              
+    270        Can delete predmet                                              
+    272        Can add dodatno polje pismena                                  
+    273        Can change dodatno polje pismena                                
+    274        Can delete dodatno polje pismena                                
+    276        Can change dokument pismena                                    
+    277        Can delete dokument pismena                                     
+    278        Can add dodatno polje predmeta                                  
+    279        Can change dodatno polje predmeta                               
+    281        Can add evidencija                                             
+    282        Can change evidencija                                           
+    283        Can delete evidencija                                           
+    285        Can change klasifikacijska oznaka                              
+    286        Can delete klasifikacijska oznaka                               
+    287        Can add vrsta pismena                                           
+    289        Can delete vrsta pismena                                       
+    290        Can add vrsta predmeta                                          
+    291        Can change vrsta predmeta                                       
+    292        Can delete vrsta predmeta                                       
+    294        Can change firma                                               
+    295        Can delete firma                                                
+    296        Can add brojčana oznaka                                         
+    298        Can delete brojčana oznaka                                     
+    299        Can add mapa                                                    
+    300        Can change mapa                                                 
+    302        Can add surješavatelj predmeta                                 
+    303        Can change surješavatelj predmeta                               
+    304        Can delete surješavatelj predmeta                               
+                                                                                
+                                                Page # 12 (5 ~ 12, total: 8)    
+                                                                                                                                                                
+                                                                                
+                                Permissions list                                
+    ID         Name                                                             
+    306        Can change pismeno                                             
+    307        Can delete pismeno                                              
+    308        Can add predložak                                               
+    310        Can delete predložak                                           
+    311        Can add osoba                                                   
+    312        Can change osoba                                                
+    314        Can add subjekt                                                
+    315        Can change subjekt                                              
+    316        Can delete subjekt                                              
+    317        Can add zaposlenik                                              
+    319        Can delete zaposlenik                                          
+    320        Can add session                                                 
+    321        Can change session                                              
+    323        Can add pismohrana                                             
+    324        Can change pismohrana                                           
+    325        Can delete pismohrana                                           
+    327        Can change veza vrsta                                          
+    328        Can delete veza vrsta                                           
+    329        Can add komentar pismena                                        
+    330        Can change komentar pismena                                     
+    332        Can add promjena statusa pismena                               
+    333        Can change promjena statusa pismena                             
+    334        Can delete promjena statusa pismena                             
+    336        Can change promjena statusa predmeta                           
+    337        Can delete promjena statusa predmeta                            
+    338        Can add obavijest                                               
+    340        Can delete obavijest                                           
+    341        Can add postavka                                                
+    342        Can change postavka                                             
+    343        Can delete postavka                                             
+    345        Can change serija barkodova                                    
+    346        Can delete serija barkodova                                     
+    347        Can add stvaratelj                                              
+    349        Can delete stvaratelj                                          
+    350        Can add komentar predmeta                                       
+    351        Can change komentar predmeta                                    
+    353        Can add stranica dokumenta                                     
+    354        Can change stranica dokumenta                                   
+    355        Can delete stranica dokumenta                                   
+                                                                                
+                                                Page # 12 (5 ~ 12, total: 8)    
+                                                                                                                                                                
+                                                                                
+                                Permissions list                                
+    ID         Name                                                             
+    357        Can change dostavna knjiga                                     
+    358        Can delete dostavna knjiga                                      
+    That's all 358 permissions fou                                              
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                Page # 12 (5 ~ 12, total: 8)    
+                                                                                

@@ -1,0 +1,16 @@
+{% extends '../kasa/base.html' %}
+
+{% load i18n %}
+
+{% block title %}Fiskali kasa - Prijava{% endblock %}
+
+{% block headline %} {% trans "Odjava" %} {% endblock %}
+
+{% block content %}
+<div class="col-md-12">
+    <div class="alert alert-success">
+        Uspješno ste odjavljeni. Hvala Vam na korištenju aplikacije!<br>
+        <a href="{% url 'home' %}">Ponovna prijava</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+/*! CSS Used from: file:///home/ivan/Desktop/Projects/Xtreme%20-%20Bootstrap%204%20Dashboard/assets/libs/chartist/dist/chartist.min.css */
+.ct-label{fill:rgba(0,0,0,.4);color:rgba(0,0,0,.4);font-size:.75rem;line-height:1;}
+.ct-line{fill:none;}
+.ct-chart-line .ct-label{display:block;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;}
+.ct-label.ct-horizontal.ct-end{-webkit-box-align:flex-start;-webkit-align-items:flex-start;-ms-flex-align:flex-start;align-items:flex-start;-webkit-box-pack:flex-start;-webkit-justify-content:flex-start;-ms-flex-pack:flex-start;justify-content:flex-start;text-align:left;text-anchor:start;}
+.ct-label.ct-vertical.ct-start{-webkit-box-align:flex-end;-webkit-align-items:flex-end;-ms-flex-align:flex-end;align-items:flex-end;-webkit-box-pack:flex-end;-webkit-justify-content:flex-end;-ms-flex-pack:flex-end;justify-content:flex-end;text-align:right;text-anchor:end;}
+.ct-grid{stroke:rgba(0,0,0,.2);stroke-width:1px;stroke-dasharray:2px;}
+.ct-point{stroke-width:10px;stroke-linecap:round;}
+.ct-line{stroke-width:4px;}
+.ct-area{stroke:none;fill-opacity:.1;}
+.ct-series-a .ct-line,.ct-series-a .ct-point{stroke:#d70206;}
+.ct-series-a .ct-area{fill:#d70206;}
+.ct-series-b .ct-line,.ct-series-b .ct-point{stroke:#f05b4f;}
+.ct-series-b .ct-area{fill:#f05b4f;}
+
+.mdi:before{display:inline-block;}
+
+.mdi:before{font:normal normal normal 24px/1 "Material Design Icons";font-size:inherit;text-rendering:auto;line-height:inherit;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;transform:translate(0,0);}
+.mdi-currency-usd:before{content:"\F1B3";}
+.mdi-shopping:before{content:"\F49A";}
+.mdi-star-circle:before{content:"\F4CF";}
+.mdi-wallet:before{content:"\F584";}
+svg:not(:root){overflow:hidden;}
+
+.list-inline{padding-left:0;list-style:none;}
+.list-inline-item{display:inline-block;}
+.list-inline-item:not(:last-child){margin-right:.5rem;}
+
+.custom-select{display:inline-block;width:110%;height:calc(3.0625rem + 2px);padding:.375rem 1.75rem .375rem .75rem;line-height:1.5;color:#4F5467;vertical-align:middle;background:url(../img/custom-select.png) right .75rem center no-repeat #fff;border:1px solid #e9ecef;border-radius:2px;appearance:none;}
+.custom-select:focus{border-color:rgba(0,0,0,.25);}
+.custom-select:focus{outline:0;box-shadow:transparent;}
+.custom-select:disabled{color:#6c757d;background-color:#e9ecef;}
+.custom-select::-ms-expand{opacity:0;}
+.card{position:relative;display:flex;flex-direction:column;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:0 solid transparent;border-radius:0;}
+.card-body{flex:1 1 auto;padding:1.25rem;}
+.card-title{margin-bottom:.75rem;}
+.card-subtitle{margin-bottom:0;}
+.card-subtitle{margin-top:-.375rem;}
+.chartist-tooltip,.ct-area,.ct-line{pointer-events:none;}
+.border-top{border-top:1px solid #e9ecef!important;}
+.d-flex{display:flex!important;}
+@media (min-width:768px){
+.d-md-flex{display:flex!important;}
+}
+.align-items-center{align-items:center!important;}
+.ml-auto{margin-left:auto!important;}
+.text-primary{color:#7460ee!important;}
+.text-info{color:#2962FF!important;}
+.text-cyan{color:#4fc3f7!important;}
+.text-orange{color:#fb8c00!important;}
+.text-muted{color:#a1aab2!important;}
+
+.card{margin-bottom:20px;}
+.card .card-subtitle{font-weight:300;margin-bottom:10px;color:#a1aab2;}
+.card .card-title{position:relative;font-weight:600;margin-bottom:10px;}
+.chartist-tooltip{position:absolute;display:inline-block;opacity:0;border-radius:2px;padding:10px 20px;background:#2962FF;color:#fff;ext-align:center;z-index:1;-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;-o-transition:opacity .2s linear;transition:opacity .2s linear;}
+.chartist-tooltip:before{content:"";position:absolute;top:100%;left:50%;width:0;height:0;margin-left:-5px;border:5px solid transparent;border-top-color:#2962FF;}
+.custom-select{-moz-appearance:none;-webkit-appearance:none;-o-appearance:none;background-size:auto;}
+.campaign{position:relative;height:250px;}
+.campaign .ct-series-a .ct-area{fill-opacity:.2;fill:url(file:///home/ivan/Desktop/Projects/Xtreme%20-%20Bootstrap%204%20Dashboard/dist/css/style.min.css#gradient);}
+.campaign .ct-series-a .ct-line,.campaign .ct-series-a .ct-point{stroke:#4fc3f7;stroke-width:2px;}
+.campaign .ct-series-b .ct-area{fill:#7460ee;fill-opacity:.1;}
+.campaign .ct-series-b .ct-line,.campaign .ct-series-b .ct-point{stroke:#7460ee;stroke-width:2px;}
+.campaign .ct-series-a .ct-point,.campaign .ct-series-b .ct-point{stroke-width:6px;}
+.ct-grid{stroke-width:.3px;stroke-dasharray:0;}

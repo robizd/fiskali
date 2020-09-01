@@ -1,0 +1,72 @@
+{% extends '../kasa/base.html' %}
+
+{% load i18n %}
+
+{% load widget_tweaks %}
+
+{% block title %}Fiskali kasa - Prijava{% endblock %}
+
+{% block headline %} {% trans "Prijava" %} {% endblock %}
+
+{% block content %}
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <form class="form-horizontal" method="post">
+                    {% csrf_token %}
+                    <label>{{ form.username.label }}:</label>
+                    {{ form.username|add_class:"form-control" }}
+                    {{ form.username.errors }}
+                    <label>{{ form.password.label }}:</label>
+                    {{ form.password|add_class:"form-control" }}
+                    {{ form.password.errors }}
+                    {{ form.non_field_errors }}
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <input class="prijava-registracija btn btn-info" type="submit" value="{% trans "Prijava" %}">
+                        </div>
+                    </div>
+                </form>
+                <a href="{% url 'registracija' %}">{% trans "Registracija" %}</a>
+                <br>
+                <a href="{% url 'demo' %}">{% trans "Demo" %}</a>
+            </div>
+            <div class="col-md-6">
+                <div class="alert alert-info">
+                    Fiskali kasa je Web aplikacija koja omogućava:
+                    <ul>
+                        <li>
+                            Unos, fiskalizaciju i ispis računa
+                        </li>
+                        <li>
+                            Upravljenje zaposlenicima i kupcima
+                        </li>
+                        <li>
+                            Upravljanje poslovnicama i naplatnim uređajima
+                        </li>
+                        <li>
+                            Upravljanje artiklima
+                        </li>
+                    </ul>
+                   
+                </div>
+                <div class="alert alert-success">
+                     <strong>Za uspješno korištenje Web aplikacije potrebno je:</strong>
+                    <ul>
+                        <li>
+                            Registrirati se
+                        </li>
+                        <li>
+                            Popuniti podatke o tvrtki među kojima je i učitavanje digitalnog certifikata dobivenog od FINE
+                        </li>
+                        <li>
+                           Unijeti zaposlenike, kupce, poslovnice i naplatne uređaje
+                        </li>
+                    </ul>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CONTENT-WRAPPER SECTION END-->
+{% endblock %}

@@ -1,0 +1,9 @@
+{% autoescape off %}
+Poštovani {{ zaposlenik.username }},
+
+Molimo vas da kliknite na sljedeću poveznicu da bi uspješno dovršili registraciju:
+http://{{ domain }}{% url 'aktivacija' uidb64=uid token=token %}
+
+Lijep pozdrav,
+Fiskali d.o.o.
+{% endautoescape %}

@@ -1,0 +1,73 @@
+{% extends "../base.html" %}
+{% load widget_tweaks %}
+{% load i18n %}
+
+{% block title %}Fiskali kasa - {% trans "Zaposlenici" %} {% endblock %}
+
+{% block klasa_zaposlenici %} class="menu-top-active" {% endblock %}
+
+{% block headline %} {% trans "Zaposlenici" %} {% endblock %}
+
+{% block content %}
+<div class="col-md-6">
+	<div class="panel panel-default">
+        <div class="panel-heading">
+           {% trans "Unos novog zaposlenika" %}
+        </div>
+        <div class="panel-body">
+	        <form method="post">
+	            {% csrf_token %}
+                {{ form.errors }}
+	            <div class="form-group col-xs-12 col-sm-8">
+                    <label for="id_username">{{ form.username.label }}</label>
+                    {{ form.username | add_class:"form-control" }}
+                    {{ form.username.errors }}
+                </div>
+                <div class="form-group col-sm-8">
+                    <label for="id_first_name">{{ form.first_name.label }}</label>
+                    {{ form.first_name | add_class:"form-control" }}
+                    {{ form.first_name.errors }}
+                </div>
+                <div class="form-group col-sm-8">
+                    <label for="id_last_name">{{ form.last_name.label }}</label>
+                    {{ form.last_name | add_class:"form-control" }}
+                    {{ form.last_name.errors }}
+                </div>
+                <div class="form-group col-sm-8">
+                    <label for="id_last_name">{{ form.email.label }}</label>
+                    {{ form.email | add_class:"form-control" }}
+                    {{ form.email.errors }}
+                </div>
+                <div class="form-group col-sm-8">
+                    <label for="id_last_name">{{ form.oib.label }}</label>
+                    {{ form.oib | add_class:"form-control" }}
+                    {{ form.oib.errors }}
+                    {{ form.oib.errors }}
+                </div>
+                <div class="form-group col-sm-5">
+                    <label for="id_is_staff">
+                    	 <strong>{{ form.is_staff.label }}</strong>
+                    </label>
+                    {{ form.is_staff }}
+                    {{ form.is_staff.errors }}
+                </div>
+                <div class="form-group col-sm-8">
+                    <label for="id_password1">{{ form.password1.label }}</label>
+                    {{ form.password1 | add_class:"form-control" }}
+                    {{ form.password1.errors }}
+                </div>
+                <div class="form-group col-sm-8">
+                    <label for="id_password2">{{ form.password2.label }}</label>
+                    {{ form.password2 | add_class:"form-control" }}
+                    {{ form.password2.errors }}
+                </div>
+                {{ form.non_field_errors }}
+                <div class="form-group col-sm-8">
+                    <input class="btn btn-md btn-success" type="submit" value="Spremi">
+                    <a href="{% url 'zaposlenici' %}" class="btn btn-default">Odustani</a>
+                </div>
+	        </form>
+	    </div>
+	</div>
+</div>
+{% endblock %}

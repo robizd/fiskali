@@ -1,0 +1,204 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% load paginator_extras %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Favicon and Touch Icons -->
+    <link href="{% static "kasa/img/favicon.png" %}" rel="shortcut icon" type="image/png">
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="{% static "kasa/css/bootstrap.css" %}" rel="stylesheet" />
+    <!-- FONT AWESOME ICONS  -->
+    <link href="{% static "kasa/css/font-awesome.css" %}" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="{% static "kasa/css/style.css" %}" rel="stylesheet" />
+     <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% block additional_end_head %}{% endblock %}
+</head>
+<body>
+    <div class="navbar navbar-inverse set-radius-zero">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img class="img-responsive" src="{% static "kasa/img/logo.png" %}" />
+                </a>
+                </div>
+                {% if user.is_authenticated %}
+                    <div class="hidden-xs podaci row">
+                        <div class="col-sm-5 podaci-left">
+                            <h4>{% trans "TVRTKA" %}:</h4>
+                            <h4>{% trans "KORISNIK" %}:</h4>
+                            <h4>{% trans "UREĐAJ" %}:</h4>
+                        </div>
+                        <div class="col-sm-7 podaci-right">
+                            <h4><strong>{{ user.tvrtka.naziv }}</strong></h4>
+                            <h4><strong>{{ user.username }}</strong></h4>
+                            <h4>
+                                <strong>
+                                    {{ request.session.naplatniuredaj|default:'Nije odabran' }}
+                                    / <a class="underline" href="{% url 'naplatni_uredaji_odabir' %}">{% trans "Odabir" %}</a>
+                                </strong>
+                            </h4>
+                        </div>
+                    </div>
+                {% endif %}
+        </div>
+    </div>
+    <!-- LOGO HEADER END-->
+    <section class="menu-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="navbar-collapse collapse ">
+                        {% if user.is_authenticated %}
+                            <ul class="menu-top nav navbar-nav navbar-right">
+                                {% if user.is_staff %}
+                                    <li><a {% block klasa_tvrtka %}{% endblock %} href="{% url 'tvrtka' pk=user.tvrtka.id %}">Tvrtka</a></li>
+                                    <li><a {% block klasa_zaposlenici %}{% endblock %} href="{% url 'zaposlenici' %}">Zaposlenici</a></li>
+                                    <li><a {% block klasa_poslovnice %}{% endblock %} href="{% url 'poslovnice' %}">Poslovnice</a></li>
+                                    <li><a {% block klasa_nap_uredaji %}{% endblock %} href="{% url 'naplatni_uredaji' %}">Naplatni uređaji</a></li>
+                                    <li><a {% block klasa_artikli %}{% endblock %} href="{% url 'artikli' %}">Artikli</a></li>
+                                    <li><a {% block klasa_kupci %}{% endblock %} href="{% url 'kupci' %}">Kupci</a></li>
+                                {% endif %}
+                                <li><a class="underline" href="{% url 'odjava' %}">Odjava</a></li>
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <div class="content-wrapper">
+        <div class="container">
+        {% if user.is_authenticated %}
+            <div class="row"> 
+              <a class="no-underline" href="{% url 'home' %}">
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                  <div class="dashboard-div-wrapper bk-clr {% block klasa_novi_racun %}{% endblock %}">
+                    <img class="img-responsive button-tab" src="{% static "kasa/img/new_document.png" %}" />
+                    <h5 class="hidden-xs">Kreiraj novi račun</h5>
+                  </div>
+                </div>
+              </a>
+              <a class="no-underline" href="{% url 'moji_racuni' %}">
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                  <div class="dashboard-div-wrapper bk-clr {% block klasa_moji_racuni %}{% endblock %}">
+                    <img class="img-responsive button-tab" src="{% static "kasa/img/user.png" %}" />
+                    <h5 class="hidden-xs">{% trans "Moji računi" %}</h5>
+                  </div>
+                </div>
+              </a>
+              <a class="no-underline" href="{% url 'naplatni_uredaji' %}">
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                  <div class="dashboard-div-wrapper bk-clr ">
+                    <img class="img-responsive button-tab" src="{% static "kasa/img/report.png" %}" />
+                    <h5 class="hidden-xs">Naplatni uređaji</h5>
+                  </div>
+                </div>
+              </a>
+              <a class="no-underline" href="{% url 'pomoc' %}">
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                  <div class="dashboard-div-wrapper bk-clr {% block klasa_pomoc %}{% endblock %}">
+                    <img class="img-responsive button-tab" src="{% static "kasa/img/help.png" %}" />
+                    <h5 class="hidden-xs">{% trans "Pomoć" %}</h5>
+                  </div>
+                </div>
+              </a>
+            </div>
+        {% endif %}
+        <div class="row margin-top">
+          <div class="col-md-12">
+            <h4 class="page-head-line">{% block headline %}{% endblock %}</h4>
+          </div>
+        </div>
+        <div class="row">
+            {% block content %}{% endblock %}
+        </div>
+        {% if is_paginated %}
+          <ul class="pagination">
+            {% if page_obj.has_previous %}
+              <li><a href="?{% url_replace request 'page' page_obj.previous_page_number %}">&laquo;</a></li>
+            {% else %}
+              <li class="disabled"><span>&laquo;</span></li>
+            {% endif %}
+            {% for i in paginator.page_range %}
+              {% if page_obj.number == i %}
+                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+              {% else %}
+                <li><a href="?{% url_replace request 'page' i %}">{{ i }}</a></li>
+              {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+              <li><a href="?{% url_replace request 'page' page_obj.next_page_number %}">&raquo;</a></li>
+            {% else %}
+              <li class="disabled"><span>&raquo;</span></li>
+            {% endif %}
+          </ul>
+        {% endif %}
+        </div>
+    </div>
+    
+    <!-- Delete modal -->
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Brisanje
+                </div>
+                <div class="modal-body">
+                    Jeste li sigurni?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Odustani</button>
+                    <a class="btn btn-danger btn-ok">Izbriši</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2020 Robert Anić
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY SCRIPTS -->
+    <script src="{% static "kasa/js/jquery-1.11.1.js" %}"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="{% static "kasa/js/bootstrap.js" %}"></script>   
+    <script>
+        $('#confirm-delete').on('show.bs.modal', function(e) {
+            $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+        });
+    </script> 
+    {% block addition_scripts %} {% endblock %}
+    {% block additional_end_body %}{% endblock %}  
+</body>
+</html>
+

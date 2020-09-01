@@ -1,0 +1,52 @@
+{% extends "../base.html" %}
+
+{% load i18n %}
+
+{% block title %}Fiskali kasa - {% trans "Kupci" %} {% endblock %}
+
+{% block klasa_kupci %} class="menu-top-active" {% endblock %}
+
+{% block headline %} {% trans "Kupci" %} {% endblock %}
+
+{% block content %}
+<div class="col-md-12">
+    {% if object_list %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {% trans "Popis kupaca" %}
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>{% trans "Naziv" %}</th>
+                            <th>{% trans "Adresa" %}</th>
+                            <th>{% trans "OIB" %}</th>
+                            <th>{% trans "Napomena" %}</th>
+                            <th>{% trans "Uredi" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for kupac in object_list %}
+                        <tr>
+                            <td>{{ kupac.naziv }}</td>
+                            <td>{{ kupac.adresa }}</td>
+                            <td>{{ kupac.oib }}</td>
+                            <td>{{ kupac.napomena }}</td>
+                            <td><a href="{% url 'kupac_izmijeni' pk=kupac.id %}" class="btn btn-primary"><i class="fa fa-edit "></i></a></td>
+                        </tr>
+                         {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% else %}
+        <div class="alert alert-danger">
+            {% trans "Nisu pronađeni kupci." %}
+        </div>
+    {% endif %}
+    <a href="{% url 'kupac_dodaj' %}" class="btn btn-success"><i class="fa fa-plus"></i> {% trans "Novi kupac" %}</a>
+</div>
+{% endblock %}

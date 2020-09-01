@@ -1,0 +1,62 @@
+{% extends "../base.html" %}
+
+{% load i18n %}
+
+{% block title %}Fiskali kasa - Tvrtka{% endblock %}
+
+{% block klasa_tvrtka %} class="menu-top-active" {% endblock %}
+
+{% block headline %} {% trans "Podaci o tvrtki" %} {% endblock %}
+
+{% block content %}
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h1>{{ object.naziv }}</h1>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tbody>
+                         <tr>
+                            <th>{% trans "Mjesto" %}</th>
+                            <td>{{ object.mjesto }}</td>
+                        </tr>
+                        <tr>
+                            <th>{% trans "Adresa" %}</th>
+                            <td>{{ object.adresa }}</td>
+                        </tr>
+                        <tr>
+                            <th>{% trans "OIB" %}</th>
+                            <td>{{ object.oib }}</td>
+                        </tr>
+                        <tr>
+                            <th>{% trans "IBAN" %}</th>
+                            <td>{{ object.iban }}</td>
+                        </tr>
+                        <tr>
+                            <th>{% trans "U sustavu PDV-a" %}</th>
+                            <td>
+                                {% if object.u_sustavu_pdv %} 
+                                    {% trans "Tvrtka je u sustavu PDV-a" %}
+                                {% else %}
+                                    {% trans "Tvrtka nije u sustavu PDV-a" %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>{% trans "Telefon" %}</th>
+                            <td>{{ object.telefon }}</td>
+                        </tr>
+                        <tr>
+                            <th>{% trans "Certifikat" %}</th>
+                            <td>{{ object.certifikat }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a href="{% url 'tvrtka_izmijeni' pk=user.tvrtka.id %}" class="btn btn-primary"><i class="fa fa-edit "></i> {% trans "Uredi podatke" %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
