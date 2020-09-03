@@ -51,8 +51,8 @@ class NoviRacunCreateView(NaplatniUredajOdabirMixin, CreateView):
 
     def get_initial(self):
         initial = super().get_initial()
-        kupac = self.request.user.tvrtka.kupac_set.get(id=1)
-        initial['kupac'] = kupac
+        kupac = self.request.user.tvrtka.kupac_set.filter(tvrtka=self.request.user.tvrtka)
+        initial['kupac'] = kupac.first()
         return initial
 
     def get_context_data(self, **kwargs):
