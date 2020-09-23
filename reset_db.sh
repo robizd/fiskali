@@ -10,6 +10,3 @@ rm -f media/*.*
 python manage.py makemigrations
 python manage.py migrate
 python manage.py loaddata user
-
-python manage.py compilemessages
-
