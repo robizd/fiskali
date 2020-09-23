@@ -102,27 +102,31 @@ class NoviRacunCreateView(NaplatniUredajOdabirMixin, CreateView):
             # Iznosi računa, porezi i osnovice
             ukupni_iznos = 0
             rbr = 0
+
             for stavka in stavkeracuna:
+                print(stavka.cleaned_data)
 
                 # Kad se prva inicijalna stavka izbrise, ostane kao delete=True
-                if stavka.cleaned_data['DELETE'] == True:
-                    continue
+                if stavka.cleaned_data:
+                    if stavka.cleaned_data['DELETE'] == True:
+                        continue
 
-                # Rbr stavke
-                rbr = rbr + 1
-                stavka.instance.rbr = rbr
-                stavka.save()
 
-                iznos_stavke = stavka.instance.artikl.maloprodajna_cijena * stavka.instance.kolicina
-                ukupni_iznos = ukupni_iznos + iznos_stavke
+                    # Rbr stavke
+                    rbr = rbr + 1
+                    stavka.instance.rbr = rbr
+                    stavka.save()
 
-                key = stavka.instance.pdv_artikla
+                    iznos_stavke = stavka.instance.artikl.maloprodajna_cijena * stavka.instance.kolicina
+                    ukupni_iznos = ukupni_iznos + iznos_stavke
 
-                if key in pdv_osnovica_porez_ukupno:
-                    pdv_osnovica_porez_ukupno[key]['ukupno'] = pdv_osnovica_porez_ukupno[key]['ukupno'] + iznos_stavke
-                else:
-                    pdv_osnovica_porez_ukupno[key] = {}
-                    pdv_osnovica_porez_ukupno[key]['ukupno'] = Decimal(iznos_stavke)
+                    key = stavka.instance.pdv_artikla
+
+                    if key in pdv_osnovica_porez_ukupno:
+                        pdv_osnovica_porez_ukupno[key]['ukupno'] = pdv_osnovica_porez_ukupno[key]['ukupno'] + iznos_stavke
+                    else:
+                        pdv_osnovica_porez_ukupno[key] = {}
+                        pdv_osnovica_porez_ukupno[key]['ukupno'] = Decimal(iznos_stavke)
 
             self.object.ukupni_iznos = ukupni_iznos
 
@@ -132,8 +136,8 @@ class NoviRacunCreateView(NaplatniUredajOdabirMixin, CreateView):
             ukupno_osnovica = 0
             ukupno_porez = 0
             for key in pdv_osnovica_porez_ukupno:
-                pdv_osnovica_porez_ukupno[key]['osnovica'] = pdv_osnovica_porez_ukupno[key]['ukupno'] / \
-                    Decimal((1 + key / 100))
+                pdv_osnovica_porez_ukupno[key]['osnovica'] = pdv_osnovica_porez_ukupno[key]['ukupno'] * \
+                    Decimal((100 - key)/100)
 
                 ukupno_osnovica = ukupno_osnovica + pdv_osnovica_porez_ukupno[key]['osnovica']
 
@@ -762,8 +766,8 @@ def ukupnoAjax(request):
     ukupno_osnovica = 0
     ukupno_porez = 0
     for key in pdv_osnovica_porez_ukupno:
-        pdv_osnovica_porez_ukupno[key]['osnovica'] = pdv_osnovica_porez_ukupno[key]['ukupno'] / \
-            Decimal((1 + key / 100))
+        pdv_osnovica_porez_ukupno[key]['osnovica'] = pdv_osnovica_porez_ukupno[key]['ukupno'] * \
+            Decimal((100 - key)/100)
 
         ukupno_osnovica = ukupno_osnovica + pdv_osnovica_porez_ukupno[key]['osnovica']
 
