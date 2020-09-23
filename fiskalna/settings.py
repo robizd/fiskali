@@ -148,14 +148,7 @@ PNP = 3
 # Debug debug toolbar
 INTERNAL_IPS = ('127.0.0.1',)
 
-# Email podaci
-EMAIL_USE_SSL = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'robert.anic1@gmail.com'
-EMAIL_HOST_PASSWORD = 'Juventus93'
-EMAIL_PORT = 465
-EMAIL_TIMEOUT = 10
-DEFAULT_FROM_EMAIL = 'robert.anic1@gmail.com'
+
 
 # Demo user
 DEMO_USER = 'demo'
